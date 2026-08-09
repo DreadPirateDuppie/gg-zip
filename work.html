@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RMGL Media — the work</title>
-<meta name="description" content="Photography by Ryan Lothian. Portfolio and Instagram.">
+<meta name="description" content="Photography. Portfolio and Instagram.">
 <meta name="theme-color" content="#0a0a09">
 
 <meta property="og:title" content="RMGL Media — the work">
-<meta property="og:description" content="Photography by Ryan Lothian.">
+<meta property="og:description" content="Photography.">
 <meta property="og:image" content="img/01.jpg">
 <meta property="og:type" content="website">
 
@@ -31,117 +31,107 @@
     font-size:17px;
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
-    min-height:100svh;
-    display:flex;flex-direction:column;
+    /* room for the fixed bar */
+    padding-bottom:calc(154px + env(safe-area-inset-bottom));
   }
 
   a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
+  img{display:block;width:100%;height:auto}
 
-  /* ---- the photograph does the talking ---- */
-  .top{
-    position:relative;
-    flex:1 1 auto;
-    min-height:44svh;
-    display:flex;align-items:flex-end;justify-content:center;
-    overflow:hidden;
-  }
-  .top img{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;object-position:center 24%;
-  }
-  .top::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom,
-      rgba(8,8,7,.45) 0%,
-      rgba(8,8,7,.05) 34%,
-      rgba(8,8,7,.62) 78%,
-      var(--bg) 100%);
-  }
-  .brand{
-    position:relative;z-index:2;
+  header{
+    padding:30px 20px 22px;
     text-align:center;
-    padding:0 24px 30px;
   }
-  .brand h1{
-    font-size:clamp(1.35rem,6.2vw,1.95rem);
-    font-weight:500;
-    letter-spacing:0.16em;
-    text-indent:0.16em;
+  header .mark{
+    font-size:1.05rem;font-weight:500;
+    letter-spacing:0.2em;text-indent:0.2em;
   }
-  .brand p{
-    margin-top:14px;
-    font-size:0.95rem;
-    line-height:1.6;
-    color:#d6d5d0;
+  header .sub{
+    margin-top:9px;
+    font-size:0.84rem;letter-spacing:0.13em;text-transform:uppercase;
+    color:var(--dim);
   }
 
-  .body{
-    flex:0 0 auto;
-    width:100%;max-width:420px;
-    margin:0 auto;
-    padding:26px 24px calc(34px + env(safe-area-inset-bottom));
+  /* ---- the work, straight away ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3px;
   }
-
-  .links{display:flex;flex-direction:column;gap:11px}
-
-  a.link{
-    display:flex;align-items:center;justify-content:center;gap:11px;
-    min-height:62px;padding:18px 22px;
-    border:1px solid var(--line);border-radius:15px;
+  @media(min-width:760px){
+    .grid{grid-template-columns:repeat(3,1fr);max-width:1100px;margin:0 auto;gap:4px}
+  }
+  .grid img{
+    aspect-ratio:2/3;
+    object-fit:cover;
     background:#141413;
-    font-size:1.04rem;font-weight:600;letter-spacing:0.01em;
+  }
+
+  /* ---- the two choices, always reachable ---- */
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:rgba(10,10,9,.93);
+    backdrop-filter:saturate(150%) blur(14px);
+    -webkit-backdrop-filter:saturate(150%) blur(14px);
+    border-top:1px solid var(--line);
+    padding:14px 20px calc(14px + env(safe-area-inset-bottom));
+  }
+  .bar .inner{
+    max-width:420px;margin:0 auto;
+    display:flex;flex-direction:column;gap:9px;
+  }
+  a.link{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    min-height:56px;padding:15px 20px;
+    border:1px solid var(--line);border-radius:14px;
+    background:#141413;
+    font-size:1.02rem;font-weight:600;
     -webkit-tap-highlight-color:transparent;
     transition:border-color .25s ease, background .25s ease;
   }
   a.link:hover{border-color:#3a3a35;background:#191917}
   a.link:active{transform:translateY(1px)}
-
-  a.link.primary{
-    background:var(--accent);color:#03170a;border-color:var(--accent);
-  }
+  a.link.primary{background:var(--accent);color:#03170a;border-color:var(--accent)}
   a.link.primary:hover{background:#5cff85;border-color:#5cff85}
-
-  a.link svg{width:20px;height:20px;flex:none}
+  a.link svg{width:19px;height:19px;flex:none}
 
   footer{
-    margin-top:30px;padding-top:24px;
-    border-top:1px solid var(--line);
-    text-align:center;
+    padding:26px 20px 8px;text-align:center;
   }
-  footer .n{
-    font-size:0.84rem;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--dim);line-height:1.8;
+  footer a{
+    font-size:0.84rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--dim);
   }
-  footer a{font-size:0.86rem;color:#5f5e5a}
-  footer a:hover{color:var(--dim)}
+  footer a:hover{color:var(--ink)}
 
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
-<div class="top">
+<header>
+  <div class="mark">RMGL Media</div>
+  <div class="sub">Photography</div>
+</header>
+
+<div class="grid">
   <img src="img/01.jpg" width="530" height="800" alt="">
-  <div class="brand">
-    <h1>RMGL Media</h1>
-    <p>Photography by Ryan Lothian.</p>
-  </div>
+  <img src="img/02.jpg" width="530" height="800" alt="">
+  <img src="img/03.jpg" width="530" height="800" alt="">
+  <img src="img/06.jpg" width="800" height="530" loading="lazy" alt="">
+  <img src="img/04.jpg" width="530" height="800" loading="lazy" alt="">
+  <img src="img/07.jpg" width="530" height="800" loading="lazy" alt="">
 </div>
 
-<div class="body">
-  <nav class="links">
+<footer>
+  <a href="index.html">Prints &amp; prices &rarr;</a>
+</footer>
 
+<div class="bar">
+  <div class="inner">
     <a class="link primary" href="https://dreadpirateduppie.github.io/rmgl-portfolio/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="16" rx="2.5"/>
-        <circle cx="8.6" cy="9.4" r="1.7"/>
-        <path d="M3.4 17l4.8-4.6 3.6 3.3 3.1-2.7 5.7 5"/>
-      </svg>
-      The portfolio
+      See the full portfolio
     </a>
-
     <a class="link" href="https://instagram.com/gg.zip" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5.5"/>
@@ -150,13 +140,7 @@
       </svg>
       @gg.zip
     </a>
-
-  </nav>
-
-  <footer>
-    <div class="n">Roaming Media Group London</div>
-    <a href="index.html">Prints &amp; prices &rarr;</a>
-  </footer>
+  </div>
 </div>
 
 </body>
