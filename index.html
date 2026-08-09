@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>gg.zip — street portraits</title>
+<meta name="theme-color" content="#111110">
+
+<style>
+  :root{
+    --bg:#111110;
+    --bg-2:#191917;
+    --line:#2b2b28;
+    --ink:#f4f1ea;
+    --ink-dim:#a29d95;
+    --accent:#e8c547;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+    padding:0 0 env(safe-area-inset-bottom);
+  }
+
+  .wrap{max-width:460px;margin:0 auto;padding:0 22px}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+
+  /* ---------- HEADER ---------- */
+  header{padding:38px 0 22px;text-align:center}
+  header h1{
+    font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;
+  }
+  header p{
+    margin-top:8px;color:var(--ink-dim);font-size:1.02rem;
+  }
+
+  /* ---------- PHOTOS ----------
+     Horizontal swipe strip — thumb-flick through the work
+     while they're looking at the screen. */
+  .strip{
+    display:flex;gap:8px;
+    max-width:460px;margin:0 auto;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:0 22px 4px;
+    scrollbar-width:none;
+  }
+  .strip::-webkit-scrollbar{display:none}
+  .strip > *{
+    flex:0 0 63%;
+    aspect-ratio:2/3;
+    scroll-snap-align:center;
+    border-radius:10px;
+  }
+  .strip .ph{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#4a4843;font-size:0.72rem;letter-spacing:0.1em;
+  }
+  .strip img{object-fit:cover;width:100%;height:100%}
+  /* Very tall images (photobooth strips) — show whole, don't crop */
+  .strip img.tall{object-fit:contain;background:var(--bg-2);border:1px solid var(--line)}
+
+  /* ---------- MENU ---------- */
+  .menu{padding:30px 0 8px}
+  .menu h2{
+    font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin-bottom:4px;
+  }
+  .row{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .row .name{font-size:1.12rem;font-weight:650}
+  .row .sub{display:block;color:var(--ink-dim);font-size:0.9rem;font-weight:400;margin-top:2px}
+  .row .amt{font-size:1.12rem;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  .sep{
+    margin-top:26px;padding-top:6px;
+  }
+
+  /* ---------- DROPDOWNS ----------
+     Everything that isn't the street sale, tucked away.
+     Native <details> — no JS. */
+  .drop{border-top:1px solid var(--line)}
+  .drop:first-of-type{margin-top:26px}
+  .drop:last-of-type{border-bottom:1px solid var(--line)}
+  .drop summary{
+    cursor:pointer;list-style:none;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    min-height:58px;padding:17px 0;
+    font-size:1.12rem;font-weight:650;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .drop summary::-webkit-details-marker{display:none}
+  .drop summary::after{
+    content:"+";color:var(--accent);font-size:1.45rem;line-height:1;font-weight:400;
+  }
+  .drop[open] summary::after{content:"–"}
+  .drop .row:first-of-type{border-top:1px solid var(--line)}
+  .drop .row:last-child{border-bottom:0;padding-bottom:20px}
+
+  .note{
+    margin-top:20px;color:var(--ink-dim);font-size:0.92rem;text-align:center;
+  }
+
+  /* ---------- INSTAGRAM ---------- */
+  .ig{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    margin:26px 0 40px;
+    padding:17px 20px;min-height:56px;
+    border:1px solid var(--line);border-radius:13px;
+    background:var(--bg-2);
+    text-decoration:none;font-size:1.05rem;font-weight:650;
+  }
+  .ig svg{width:20px;height:20px;flex:none}
+  .ig:active{transform:translateY(1px)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>gg.zip</h1>
+  <p>Real photo. Printed here. Two minutes.</p>
+</header>
+
+<!-- Drop real photos in img/ and swap each .ph for:
+     <img src="img/01.jpg" alt="">
+     Very tall images (photobooth strips) take class="tall" -->
+<div class="strip">
+  <div class="ph">PHOTO 01</div>
+  <div class="ph">PHOTO 02</div>
+  <div class="ph">PHOTO 03</div>
+  <div class="ph">PHOTO 04</div>
+  <div class="ph">PHOTO 05</div>
+</div>
+
+<main class="wrap">
+
+  <div class="menu">
+    <div class="row">
+      <div><span class="name">One print</span><span class="sub">6×4″, in your hand. Don’t like it? We shoot it again.</span></div>
+      <div class="amt">£15</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Two prints</span><span class="sub">Same shot or two different</span></div>
+      <div class="amt">£25</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Photo strip</span><span class="sub">Four poses on one print, photobooth style</span></div>
+      <div class="amt">£20</div>
+    </div>
+    <div class="row">
+      <div><span class="name">One each</span><span class="sub">Groups of three or more</span></div>
+      <div class="amt">£10 each</div>
+    </div>
+  </div>
+
+  <div class="menu sep">
+    <h2>Add on</h2>
+    <div class="row">
+      <div><span class="name">Fridge magnet</span><span class="sub">Peel and stick</span></div>
+      <div class="amt">+£5</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Stand-up mount</span><span class="sub">Sits on a desk or shelf</span></div>
+      <div class="amt">+£5</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Postcard back</span><span class="sub">Write on it, stamp it, send it home</span></div>
+      <div class="amt">+£5</div>
+    </div>
+    <div class="row">
+      <div><span class="name">The digital file</span><span class="sub">Full quality, sent to your phone before you go</span></div>
+      <div class="amt">+£5</div>
+    </div>
+  </div>
+
+  <div class="menu sep">
+    <h2>While I’m here</h2>
+    <div class="row">
+      <div><span class="name">Make a session of it</span><span class="sub">30–45 min · a few spots nearby · prints on the day, digitals after</span></div>
+      <div class="amt">£75</div>
+    </div>
+  </div>
+
+  <details class="drop">
+    <summary>Book a session</summary>
+    <div class="row">
+      <div><span class="name">Headshots</span><span class="sub">45 min · 3 fully retouched</span></div>
+      <div class="amt">£150</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Passport photos</span><span class="sub">Added to any session — printed + digital</span></div>
+      <div class="amt">+£10</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Portrait session</span><span class="sub">1 hr · ~25 edited · prints on the day</span></div>
+      <div class="amt">£200</div>
+    </div>
+  </details>
+
+  <details class="drop">
+    <summary>Events &amp; parties</summary>
+    <div class="row">
+      <div><span class="name">Photos only</span><span class="sub">I shoot the night, you get the edited gallery after</span></div>
+      <div class="amt">Let’s talk</div>
+    </div>
+    <div class="row">
+      <div><span class="name">Photos + prints</span><span class="sub">I bring the printer — everyone goes home with one</span></div>
+      <div class="amt">Let’s talk</div>
+    </div>
+  </details>
+
+  <p class="note">Cash or card.</p>
+
+  <a class="ig" href="https://instagram.com/gg.zip" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+      <circle cx="12" cy="12" r="4.2"/>
+      <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+    </svg>
+    @gg.zip
+  </a>
+
+</main>
+
+</body>
+</html>
