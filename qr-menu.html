@@ -3,12 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RMGL Media — scan me</title>
+<title>RMGL Media — prices</title>
 <meta name="theme-color" content="#ffffff">
 <style>
-  /* Deliberately WHITE, not the site's dark theme.
-     QR scanners need a light background and a quiet zone —
-     an inverted code often fails to read. */
+  /* Same white treatment as qr.html — scanners need a light field. */
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
@@ -28,7 +26,7 @@
   img{
     width:min(74vw,66vh,440px);
     height:auto;
-    image-rendering:pixelated; /* keeps modules crisp when scaled */
+    image-rendering:pixelated;
   }
   .links{display:flex;flex-direction:column;gap:10px;margin-top:4px}
   a{
@@ -40,14 +38,14 @@
 </style>
 </head>
 <body>
-  <p class="kicker">Everything</p>
+  <p class="kicker">Prices</p>
   <h1>Point your camera here</h1>
-  <p>Prices, work &amp; socials</p>
+  <p>Straight to the menu</p>
 
-  <img src="qr.png" alt="QR code to RMGL Media">
+  <img src="qr-menu.png" alt="QR code to the RMGL Media price menu">
 
   <div class="links">
-    <a href="qr-menu.html">Prices only &rarr;</a>
+    <a href="qr.html">Everything &rarr;</a>
     <a class="quiet" href="index.html">back</a>
   </div>
 </body>
