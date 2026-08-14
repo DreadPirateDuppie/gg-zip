@@ -33,15 +33,6 @@
   img{display:block;max-width:100%;height:auto}
   a{color:inherit}
 
-  /* ---------- HEADER ---------- */
-  header{padding:28px 0 16px;text-align:center}
-  header h1{
-    font-size:clamp(1.35rem,6.2vw,1.6rem);font-weight:500;letter-spacing:0.14em;text-indent:0.14em;
-  }
-  header p{
-    margin-top:10px;color:#d2d1cc;font-size:0.95rem;line-height:1.5;
-  }
-
   /* ---------- PHOTOS ----------
      Horizontal swipe strip — thumb-flick through the work
      while they're looking at the screen. */
@@ -51,7 +42,7 @@
     overflow-x:auto;
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
-    padding:0 22px 4px;
+    padding:16px 22px 4px;
     scrollbar-width:none;
   }
   .strip::-webkit-scrollbar{display:none}
@@ -137,11 +128,6 @@
 </style>
 </head>
 <body>
-
-<header class="wrap">
-  <h1>RMGL Media</h1>
-  <p>Real photo. Printed here. Two minutes.</p>
-</header>
 
 <div class="strip">
   <img src="img/01.jpg" width="530" height="800" alt="">
