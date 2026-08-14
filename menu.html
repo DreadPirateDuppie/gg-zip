@@ -62,13 +62,15 @@
   /* Very tall images (photobooth strips) — show whole, don't crop */
   .strip img.tall{object-fit:contain;background:var(--bg-2);border:1px solid var(--line)}
 
-  .scroll-hint{
-    text-align:center;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--ink-dim);margin:10px 0 0;
+  .title-bar{
+    text-align:center;padding:18px 0 6px;
+  }
+  .title-bar h1{
+    font-size:1.15rem;font-weight:600;letter-spacing:0.14em;text-indent:0.14em;text-transform:uppercase;
   }
 
   /* ---------- MENU ---------- */
-  .menu{padding:20px 0 8px}
+  .menu{padding:14px 0 8px}
   .menu h2{
     font-size:0.84rem;letter-spacing:0.12em;text-transform:uppercase;
     color:var(--accent);font-weight:600;margin-bottom:9px;line-height:1.7;
@@ -136,7 +138,10 @@
   <img src="img/07.jpg" width="530" height="800" alt="">
   <img src="img/05.jpg" width="530" height="800" alt="">
 </div>
-<div class="scroll-hint">Prices below &darr;</div>
+
+<div class="title-bar wrap">
+  <h1>RMGL Media</h1>
+</div>
 
 <main class="wrap">
 
