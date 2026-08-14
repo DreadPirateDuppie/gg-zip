@@ -34,12 +34,12 @@
   a{color:inherit}
 
   /* ---------- HEADER ---------- */
-  header{padding:48px 0 26px;text-align:center}
+  header{padding:28px 0 16px;text-align:center}
   header h1{
     font-size:clamp(1.35rem,6.2vw,1.6rem);font-weight:500;letter-spacing:0.14em;text-indent:0.14em;
   }
   header p{
-    margin-top:13px;color:#d2d1cc;font-size:0.98rem;line-height:1.6;
+    margin-top:10px;color:#d2d1cc;font-size:0.95rem;line-height:1.5;
   }
 
   /* ---------- PHOTOS ----------
@@ -56,8 +56,8 @@
   }
   .strip::-webkit-scrollbar{display:none}
   .strip > *{
-    flex:0 0 63%;
-    aspect-ratio:2/3;
+    flex:0 0 52%;
+    aspect-ratio:3/4;
     scroll-snap-align:center;
     border-radius:10px;
   }
@@ -71,8 +71,13 @@
   /* Very tall images (photobooth strips) — show whole, don't crop */
   .strip img.tall{object-fit:contain;background:var(--bg-2);border:1px solid var(--line)}
 
+  .scroll-hint{
+    text-align:center;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ink-dim);margin:10px 0 0;
+  }
+
   /* ---------- MENU ---------- */
-  .menu{padding:30px 0 8px}
+  .menu{padding:20px 0 8px}
   .menu h2{
     font-size:0.84rem;letter-spacing:0.12em;text-transform:uppercase;
     color:var(--accent);font-weight:600;margin-bottom:9px;line-height:1.7;
@@ -145,7 +150,7 @@
   <img src="img/04.jpg" width="530" height="800" alt="">
   <img src="img/05.jpg" width="530" height="800" alt="">
 </div>
-</div>
+<div class="scroll-hint">Prices below &darr;</div>
 
 <main class="wrap">
 
